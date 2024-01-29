@@ -1,5 +1,5 @@
-import FoodCard from "../SharedComponents/FoodCard"
-import SectionHeader from "../SharedComponents/SectionHeader"
+import FoodCard from "../SharedComponents/FoodCard/FoodCard"
+import SectionHeader from "../SharedComponents/SectionHeader/SectionHeader"
 
 
 const DeliciousDealSection = () => {
@@ -12,7 +12,7 @@ const DeliciousDealSection = () => {
             </div>
 
             {/* delicious section content */}
-            <div className=" grid grid-cols-4 mb-20 gap-10">
+            <div className=" grid grid-cols-4 gap-10">
                 <FoodCard />
                 <FoodCard />
                 <FoodCard />
@@ -21,6 +21,10 @@ const DeliciousDealSection = () => {
                 <FoodCard />
                 <FoodCard />
                 <FoodCard />
+            </div>
+
+            <div className=" flex justify-center mb-20 mt-10">
+                <button className=' btn px-5 rounded-sm hover:bg-yellow-500 bg-yellow-300 border-none'>VIEW ALL FOODS</button>
             </div>
 
         </div>

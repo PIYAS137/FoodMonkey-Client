@@ -11,7 +11,6 @@ const AppNavBar = () => {
         <li className='text-white'><NavLink to={'/'}>Home</NavLink></li>
         <li className='text-white'><NavLink to={'/foods'}>Foods</NavLink></li>
         <li className='text-white'><NavLink to={'/foods'}>Resturants</NavLink></li>
-        <li className='text-white'><NavLink to={'/blogs'}>Blogs</NavLink></li>
         <li className='text-white'><NavLink to={'/blogs'}>Dashboard</NavLink></li>
         <li className='text-white'><NavLink to={'/cart'}>Login</NavLink></li>
     </>
