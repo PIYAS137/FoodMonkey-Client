@@ -55,7 +55,7 @@ const AppNavBar = () => {
                             <small className=' text-yellow-300 text-center'>$400</small>
                         </div>
                     </div>
-                    <button className=' btn px-8 rounded-sm hover:bg-yellow-500 bg-yellow-300 border-none'>DISCOVER FOODS</button>
+                    <button className=' btn px-5 rounded-sm hover:bg-yellow-500 bg-yellow-300 border-none'>DISCOVER FOODS</button>
                 </div>
             </div>
         </nav>
