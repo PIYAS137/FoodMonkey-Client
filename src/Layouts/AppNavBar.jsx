@@ -9,10 +9,10 @@ const AppNavBar = () => {
 
     const navLinks = <>
         <li className='text-white'><NavLink to={'/'}>Home</NavLink></li>
-        <li className='text-white'><NavLink to={'/foods'}>Foods</NavLink></li>
-        <li className='text-white'><NavLink to={'/foods'}>Resturants</NavLink></li>
+        <li className='text-white'><NavLink to={'/allfoods'}>Foods</NavLink></li>
+        <li className='text-white'><NavLink to={'/restaurants'}>Resturants</NavLink></li>
         <li className='text-white'><NavLink to={'/blogs'}>Dashboard</NavLink></li>
-        <li className='text-white'><NavLink to={'/cart'}>Login</NavLink></li>
+        <li className='text-white'><NavLink to={'/login'}>Login</NavLink></li>
     </>
 
 
