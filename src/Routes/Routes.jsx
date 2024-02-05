@@ -8,6 +8,10 @@ import OneRestaurantPage from '../Pages/OneRestaurantPage/OneRestaurantPage';
 import OneFoodPage from '../Pages/OneFoodPage/OneFoodPage';
 import AllFoodsPage from '../Pages/AllFoodsPage/AllFoodsPage';
 import AllRestaurantsPage from '../Pages/AllRestaurantsPage/AllRestaurantsPage';
+import DashboardRootPage from '../Pages/DashboardRootPage/DashboardRootPage';
+import DashboardHomePage from '../Pages/DashboardHomePage/DashboardHomePage';
+import AddRestaurantsPage from '../Components/DashboardComponents/AddRestaurantsPage/AddRestaurantsPage';
+import AddFoodsPage from '../Components/DashboardComponents/AddFoodsPage/AddFoodsPage';
 
 const router = createBrowserRouter([
     {
@@ -47,6 +51,24 @@ const router = createBrowserRouter([
                 element : <AllRestaurantsPage/>
             }
             
+        ]
+    },
+    {
+        path : 'dashboard',
+        element : <DashboardRootPage/>,
+        children : [
+            {
+                path : 'admin_dashboard',
+                element : <DashboardHomePage/>
+            },
+            {
+                path : 'add_restaurants',
+                element : <AddRestaurantsPage/>
+            },
+            {
+                path : 'add_foods',
+                element : <AddFoodsPage/>
+            }
         ]
     }
 ])
