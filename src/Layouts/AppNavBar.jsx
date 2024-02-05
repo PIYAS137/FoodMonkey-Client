@@ -40,7 +40,7 @@ const AppNavBar = () => {
                 </div>
                 <div className="navbar-end">
                     <div className='text-white mr-5 flex items-center space-x-3 border-r pr-4'>
-                        <Link to={'/'}><FaTruck className=' text-4xl' /></Link>
+                        <Link to={'/del_rec'}><FaTruck className=' text-4xl' /></Link>
                         <div className=' flex flex-col'>
                             <small className=' text-gray-300'>Delevery Record</small>
                             <small className=' text-yellow-300 text-center'>+88013210861</small>

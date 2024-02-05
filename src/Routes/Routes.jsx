@@ -16,6 +16,8 @@ import ManageRestaurantsPage from '../Pages/ManageRestaurantsPage/ManageRestaura
 import UpdateRestaurantsPage from '../Pages/UpdateRestaurantsPage/UpdateRestaurantsPage';
 import UpdateFoodsPage from '../Pages/UpdateFoodsPage/UpdateFoodsPage';
 import ManageFoodsPage from '../Pages/ManageFoodsPage/ManageFoodsPage';
+import CartPage from '../Pages/CartPage/CartPage';
+import DeleveryRecordPage from '../Pages/DeleveryRecordPage/DeleveryRecordPage';
 
 
 const router = createBrowserRouter([
@@ -54,6 +56,14 @@ const router = createBrowserRouter([
             {
                 path: '/restaurants',
                 element: <AllRestaurantsPage />
+            },
+            {
+                path: '/cart',
+                element: <CartPage />
+            },
+            {
+                path : '/del_rec',
+                element : <DeleveryRecordPage/>
             }
 
         ]
@@ -89,7 +99,7 @@ const router = createBrowserRouter([
             {
                 path: 'manage_foods',
                 element: <ManageFoodsPage />
-            }
+            },
         ]
     }
 ])
