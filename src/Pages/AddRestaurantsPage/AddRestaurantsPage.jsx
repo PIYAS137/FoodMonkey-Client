@@ -1,13 +1,12 @@
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom";
-import { areaArr } from "../../../Utils/Cities";
+import { areaArr } from "../../Utils/Cities";
 
 const AddRestaurantsPage = () => {
 
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
   } = useForm()
 
@@ -17,6 +16,7 @@ const AddRestaurantsPage = () => {
     temp.items_count=0;
     temp.ratings=Math.floor((Math.random() * 5) + 1); //for this temporary porject, i simplify the backend !
     console.log(temp);
+    reset()
   }
 
 
