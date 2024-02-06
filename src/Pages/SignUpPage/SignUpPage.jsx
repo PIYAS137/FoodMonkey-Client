@@ -18,8 +18,9 @@ const SignUpPage = () => {
     formState: { errors },
   } = useForm()
 
+
+  // create user function
   const onSubmit = (data) => {
-    // console.log(data);
     Firebase_SignUp_User(data.email, data.pass)
       .then(res => {
         if (res.user) {

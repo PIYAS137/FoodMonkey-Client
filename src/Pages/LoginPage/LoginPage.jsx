@@ -17,6 +17,7 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm()
 
+  // login with email and pass function 
   const onSubmit = (data) => {
     // console.log(data);
     Firebase_Login_User(data.email, data.pass)

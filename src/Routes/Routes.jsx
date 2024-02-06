@@ -82,6 +82,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'add_foods',
+                loader : ()=>fetch('http://localhost:5022/restaurant'),
                 element: <AddFoodsPage />
             },
             {

@@ -1,7 +1,13 @@
 import { useForm } from "react-hook-form"
 import { areaArr } from "../../Utils/Cities";
+import usePublicAxios from "../../Hooks/usePublicAxios";
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const AddRestaurantsPage = () => {
+
+  const publicAxios = usePublicAxios();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -12,18 +18,32 @@ const AddRestaurantsPage = () => {
 
   const onSubmit = (data) => {
     const temp = data;
-    temp.start_since= new Date().getFullYear(); //take the current year
-    temp.items_count=0;
-    temp.ratings=Math.floor((Math.random() * 5) + 1); //for this temporary porject, i simplify the backend !
-    console.log(temp);
+    temp.start_since = new Date().getFullYear(); //take the current year
+    temp.ratings = Math.floor((Math.random() * 5) + 1); //for this temporary porject, i simplify the backend !
+    publicAxios.post('/restaurant', temp)
+      .then(res => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Successfully Added Restaurant !",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          navigate('/');
+        }
+      })
+      .catch(err => {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      })
     reset()
   }
-
-
-
-
-
-
 
 
 
@@ -53,19 +73,6 @@ const AddRestaurantsPage = () => {
         </select>
         {errors.res_city && <span className=" text-red-500">City is required</span>}
 
-
-        {/* 
-        password field
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text text-black">Password</span>
-          </label>
-          <input {...register("pass", { required: true })} placeholder="Enter your password" className="input input-bordered bg-yellow-400" />
-          {errors.pass && <span className=" text-red-500">This field is required</span>}
-          <label className="label ">
-            <p className="text-black label-text-alt link link-hover mt-4">Dont have an account? <Link to={'/signup'} className=" font-semibold">Create Account</Link></p>
-          </label>
-        </div> */}
         <div className="form-control ">
           <button className="btn hover:bg-yellow-400 mt-3 bg-yellow-500 text-black border-none uppercase tracking-wider ">Create</button>
         </div>

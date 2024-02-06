@@ -1,7 +1,13 @@
 import { useForm } from "react-hook-form"
-import { areaArr } from "../../Utils/Cities";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import usePublicAxios from "../../Hooks/usePublicAxios";
+import Swal from 'sweetalert2';
 
 const AddFoodsPage = () => {
+
+  const loader = useLoaderData();
+  const publicAxios = usePublicAxios();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -12,12 +18,24 @@ const AddFoodsPage = () => {
 
   const onSubmit = (data) => {
     const temp = data;
-    temp.items_count = 0;
-    temp.status=true;
+    temp.status = true;
     temp.ratings = Math.floor((Math.random() * 5) + 1); //for this temporary porject, i simplify the backend !
-    // i have to select the res name 
-    console.log(temp);
-    reset()
+    publicAxios.post('/food', temp)
+      .then(res => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Successfully Added Food !",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          reset();
+          navigate('/')
+        }
+      }).catch(err => {
+        console.log(err.message);
+      })
   }
 
 
@@ -41,13 +59,13 @@ const AddFoodsPage = () => {
 
         {/* Select restaurants field */}
         <label className="label-text text-black">Select Restaurants</label>
-        <select {...register("res_city", { required: true })} className="p-3 w-full mt-1 border rounded-lg input-bordered mr-2 bg-yellow-400 cursor-pointer">
-          <option value="" >Select Restaurants City</option>
+        <select {...register("res_name", { required: true })} className="p-3 w-full mt-1 border rounded-lg input-bordered mr-2 bg-yellow-400 cursor-pointer">
+          <option value="" >Select Restaurants </option>
           {
-            areaArr.map(one => <option value={one?.name} key={one.id} className=" capitalize" >{one?.name}</option>)
+            loader.map(one => <option value={one?.res_name} key={one._id} className=" capitalize " >{one?.res_name}</option>)
           }
         </select>
-        {errors.res_city && <span className=" text-red-500">City is required</span>}
+        {errors.res_name && <span className=" text-red-500">City is required</span>}
 
         {/* main price field */}
         <div className="form-control mb-2">
@@ -65,6 +83,15 @@ const AddFoodsPage = () => {
           </label>
           <input {...register("discount_price", { required: true })} type="number" min={1} placeholder="Enter discount price" className="input input-bordered bg-yellow-400" />
           {errors.discount_price && <span className=" text-red-500">this field is required</span>}
+        </div>
+
+        {/* photo URL field */}
+        <div className="form-control mb-2">
+          <label className="label">
+            <span className="label-text text-black">Food Picture URL</span>
+          </label>
+          <input {...register("photo", { required: true })} placeholder="Enter photo url" className="input input-bordered bg-yellow-400" />
+          {errors.photo && <span className=" text-red-500">this field is required</span>}
         </div>
 
         {/* food details field */}
