@@ -1,7 +1,15 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Contexts/FirebaseContext";
+import usePublicAxios from "../../Hooks/usePublicAxios";
+import Swal from 'sweetalert2'
 
 const SignUpPage = () => {
+
+  const { Firebase_SignUp_User, Firebase_Update_User } = useContext(AuthContext);
+  const publicAxios = usePublicAxios();
+  const navigate = useNavigate()
 
   const {
     register,
@@ -11,7 +19,36 @@ const SignUpPage = () => {
   } = useForm()
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
+    Firebase_SignUp_User(data.email, data.pass)
+      .then(res => {
+        if (res.user) {
+          Firebase_Update_User(data.name, data.photo)
+            .then(res => {
+              publicAxios.post('/user', data)
+                .then(res => {
+                  if (res.data.insertedId) {
+                    Swal.fire({
+                      position: "top-end",
+                      icon: "success",
+                      title: "Successfully SignUp",
+                      showConfirmButton: false,
+                      timer: 1500
+                    });
+                    navigate('/')
+                  }
+                }).catch(err => {
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: `${err.message}`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                })
+            })
+        }
+      })
   }
 
 
@@ -49,7 +86,7 @@ const SignUpPage = () => {
             <input {...register("email", { required: true })} placeholder="Enter your email" className="input input-bordered bg-yellow-400" />
             {errors.email && <span className=" text-red-500">This field is required</span>}
           </div>
-          
+
           {/* password field */}
           <div className="form-control">
             <label className="label">
@@ -61,16 +98,16 @@ const SignUpPage = () => {
               <p className="text-black label-text-alt link link-hover mt-4">Already have an account? <Link to={'/login'} className=" font-semibold">Go Login</Link></p>
             </label>
           </div>
-          
-          
-          
+
+
+
           <div className="form-control ">
             <button className="btn hover:bg-yellow-400 bg-yellow-500 text-black border-none uppercase tracking-wider">Register</button>
           </div>
         </form>
-        <div className=" col-span-3 w-full h-full bg-contain object-cover bg-center " style={{ 
-      backgroundImage: `url("https://i.pinimg.com/originals/c5/e0/fb/c5e0fb9892c8af9c2b69de1000019457.jpg")` 
-    }}>
+        <div className=" col-span-3 w-full h-full bg-contain object-cover bg-center " style={{
+          backgroundImage: `url("https://i.pinimg.com/originals/c5/e0/fb/c5e0fb9892c8af9c2b69de1000019457.jpg")`
+        }}>
         </div>
       </div>
     </div>

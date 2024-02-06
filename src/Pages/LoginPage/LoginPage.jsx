@@ -1,17 +1,76 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Contexts/FirebaseContext";
+import Swal from 'sweetalert2';
+import { FaGoogle } from "react-icons/fa6";
+import usePublicAxios from "../../Hooks/usePublicAxios";
 
 const LoginPage = () => {
+  const { Firebase_Login_User, Firebase_Google_Login } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const publicAxios = usePublicAxios()
 
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm()
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
+    Firebase_Login_User(data.email, data.pass)
+      .then(res => {
+        if (res.user) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Successfully Login",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          navigate('/')
+        }
+      }).catch(err => {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      })
+
+  }
+
+
+  // google login function 
+  const handleClickGoogleLogin = () => {
+    Firebase_Google_Login()
+      .then(res => {
+        if (res.user) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Successfully Login",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          navigate('/')
+          publicAxios.post('/user', res.user)
+            .then(res => {
+              console.log(res.data);
+            })
+        }
+      }).catch(err => {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      })
   }
 
 
@@ -44,7 +103,11 @@ const LoginPage = () => {
             </label>
           </div>
           <div className="form-control ">
-            <button className="btn hover:bg-yellow-400 bg-yellow-500 text-black border-none uppercase tracking-wider ">Login</button>
+            <button className="btn hover:bg-yellow-400 bg-yellow-500 text-black border-none uppercase tracking-wider">Login</button>
+            <button onClick={handleClickGoogleLogin} className="btn hover:bg-blue-500 bg-blue-400 text-black border-none uppercase tracking-wider mt-3 text-xs">
+              <FaGoogle className=" text-white text-xl" />
+              <span className=" text-white">Login With Google</span>
+            </button>
           </div>
         </form>
         <div className=" col-span-3 w-full h-full bg-contain object-cover bg-center " style={{

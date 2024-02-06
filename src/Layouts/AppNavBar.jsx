@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { FaCartShopping, FaTruck } from "react-icons/fa6";
 import './AppNavBar.css'
+import { AuthContext } from '../Contexts/FirebaseContext';
 
 const AppNavBar = () => {
+
+    const { user, Firebase_Logout_User } = useContext(AuthContext)
 
 
 
@@ -12,8 +15,12 @@ const AppNavBar = () => {
         <li className='text-white'><NavLink to={'/restaurants'}>Resturants</NavLink></li>
         <li className='text-white'><NavLink to={'/allfoods'}>Foods</NavLink></li>
         <li className='text-white'><NavLink to={'/dashboard/admin_dashboard'}>Dashboard</NavLink></li>
-        <li className='text-white'><NavLink to={'/login'}>Login</NavLink></li>
     </>
+
+    const handleClickSignOut = () => {
+        Firebase_Logout_User()
+            .then().catch()
+    }
 
 
 
@@ -54,7 +61,14 @@ const AppNavBar = () => {
                             <small className=' text-yellow-300 text-center'>$400</small>
                         </div>
                     </div>
-                    <button className=' btn px-5 rounded-sm hover:bg-yellow-500 bg-yellow-300 border-none'>DISCOVER FOODS</button>
+                    {
+                        user?.email ?
+                            <button onClick={handleClickSignOut} className=' btn px-5 rounded-lg hover:bg-yellow-500 bg-red-500 text-white border-none'>Logout</button>
+                            :
+                            <Link to={'/login'}>
+                                <button className=' btn px-5 rounded-lg hover:bg-yellow-500 bg-yellow-300 border-none'>Login</button>
+                            </Link>
+                    }
                 </div>
             </div>
         </nav>
