@@ -31,7 +31,7 @@ const AddFoodsPage = () => {
             timer: 1500
           });
           reset();
-          navigate('/')
+          navigate('/dashboard/manage_foods')
         }
       }).catch(err => {
         console.log(err.message);

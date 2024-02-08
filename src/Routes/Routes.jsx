@@ -62,8 +62,8 @@ const router = createBrowserRouter([
                 element: <CartPage />
             },
             {
-                path : '/del_rec',
-                element : <DeleveryRecordPage/>
+                path: '/del_rec',
+                element: <DeleveryRecordPage />
             }
 
         ]
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'add_foods',
-                loader : ()=>fetch('http://localhost:5022/restaurant'),
+                loader: () => fetch('http://localhost:5022/restaurant'),
                 element: <AddFoodsPage />
             },
             {

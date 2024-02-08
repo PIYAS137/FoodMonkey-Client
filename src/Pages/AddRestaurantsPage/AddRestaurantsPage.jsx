@@ -30,7 +30,7 @@ const AddRestaurantsPage = () => {
             showConfirmButton: false,
             timer: 1500
           });
-          navigate('/');
+          navigate('/dashboard/manage_restaurants');
         }
       })
       .catch(err => {
@@ -60,6 +60,15 @@ const AddRestaurantsPage = () => {
           </label>
           <input {...register("res_name", { required: true })} placeholder="Enter restaurants name" className="input input-bordered bg-yellow-400" />
           {errors.res_name && <span className=" text-red-500">Name is required</span>}
+        </div>
+
+        {/* restaurants photo url field */}
+        <div className="form-control mb-2">
+          <label className="label">
+            <span className="label-text text-black">Restaurant Photo URL</span>
+          </label>
+          <input {...register("res_photo", { required: true })} placeholder="Enter restaurants photo URL" className="input input-bordered bg-yellow-400" />
+          {errors.res_photo && <span className=" text-red-500">Name is required</span>}
         </div>
 
 
