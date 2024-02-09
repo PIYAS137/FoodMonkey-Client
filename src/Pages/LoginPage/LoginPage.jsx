@@ -58,10 +58,14 @@ const LoginPage = () => {
             timer: 1500
           });
           navigate('/')
-          publicAxios.post('/user', res.user)
-            .then(res => {
-              console.log(res.data);
-            })
+          const userInfo={
+            user_name : res?.user?.displayName,
+            user_image: res?.user?.photoURL,
+            user_email: res?.user?.email,
+            user_status: "user"
+          }
+          publicAxios.post('/user', userInfo)
+            .then(res => {})
         }
       }).catch(err => {
         Swal.fire({

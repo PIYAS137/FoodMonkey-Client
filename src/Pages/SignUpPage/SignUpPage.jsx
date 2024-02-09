@@ -21,12 +21,18 @@ const SignUpPage = () => {
 
   // create user function
   const onSubmit = (data) => {
+    const userInfo = {
+      user_name: data?.name,
+      user_image: data?.photo,
+      user_email: data?.email,
+      user_status: "user"
+    }
     Firebase_SignUp_User(data.email, data.pass)
       .then(res => {
         if (res.user) {
           Firebase_Update_User(data.name, data.photo)
             .then(res => {
-              publicAxios.post('/user', data)
+              publicAxios.post('/user', userInfo)
                 .then(res => {
                   if (res.data.insertedId) {
                     Swal.fire({

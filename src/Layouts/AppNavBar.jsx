@@ -3,11 +3,12 @@ import { Link, NavLink } from 'react-router-dom'
 import { FaCartShopping, FaTruck } from "react-icons/fa6";
 import './AppNavBar.css'
 import { AuthContext } from '../Contexts/FirebaseContext';
+import useGetAllCartItem from '../Hooks/useGetAllCartItem';
 
 const AppNavBar = () => {
 
     const { user, Firebase_Logout_User } = useContext(AuthContext)
-
+    const [allItems,refetch] = useGetAllCartItem();
 
 
     const navLinks = <>
@@ -54,7 +55,7 @@ const AppNavBar = () => {
                         </div>
                     </div>
                     <div className='text-white mr-5 relative flex items-center space-x-3 '>
-                        <span className='text-xs absolute -top-2 -left-2 rounded-full aspect-square w-5 flex items-center justify-center bg-yellow-300 text-black'>3</span>
+                        <span className='text-xs absolute -top-2 -left-2 rounded-full aspect-square w-5 flex items-center justify-center bg-yellow-300 text-black'>{allItems?.length}</span>
                         <Link to={'/cart'}><FaCartShopping className=' text-2xl' /></Link>
                         <div className=' flex flex-col'>
                             <small className=' text-gray-300'>Shopping Cart</small>

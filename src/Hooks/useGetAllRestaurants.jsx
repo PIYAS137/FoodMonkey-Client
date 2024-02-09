@@ -7,14 +7,14 @@ const useGetAllRestaurants = () => {
 
     const publicAxios = usePublicAxios()
 
-    const { data:allRes,refetch} = useQuery({
+    const { data: allRes, refetch } = useQuery({
         queryKey: ['getAllRestaurants'],
         queryFn: async () => {
             const res = await publicAxios.get('/restaurant');
             return res.data;
         }
     })
-    return [allRes,refetch]
+    return [allRes, refetch]
 }
 
 export default useGetAllRestaurants

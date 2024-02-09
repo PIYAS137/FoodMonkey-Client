@@ -6,7 +6,7 @@ const useGetAllFoods = () => {
     const publicAxios = usePublicAxios()
 
     const { data:allFoods,refetch} = useQuery({
-        queryKey: ['getAllRestaurants'],
+        queryKey: ['getAllFodds'],
         queryFn: async () => {
             const res = await publicAxios.get('/food');
             return res.data;

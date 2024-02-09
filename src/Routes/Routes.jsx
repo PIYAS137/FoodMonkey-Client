@@ -13,7 +13,6 @@ import DashboardHomePage from '../Pages/DashboardHomePage/DashboardHomePage';
 import AddRestaurantsPage from '../Pages/AddRestaurantsPage/AddRestaurantsPage';
 import AddFoodsPage from '../Pages/AddFoodsPage/AddFoodsPage';
 import ManageRestaurantsPage from '../Pages/ManageRestaurantsPage/ManageRestaurantsPage';
-import UpdateRestaurantsPage from '../Pages/UpdateRestaurantsPage/UpdateRestaurantsPage';
 import UpdateFoodsPage from '../Pages/UpdateFoodsPage/UpdateFoodsPage';
 import ManageFoodsPage from '../Pages/ManageFoodsPage/ManageFoodsPage';
 import CartPage from '../Pages/CartPage/CartPage';
@@ -42,11 +41,13 @@ const router = createBrowserRouter([
                 element: <DivisionRestaurantsPage />
             },
             {
-                path: '/oneres',
+                path: '/oneres/:resName',
+                loader:({params})=>fetch(`http://localhost:5022/resfood/${params?.resName}`),
                 element: <OneRestaurantPage />
             },
             {
-                path: '/onecard',
+                path: '/onecard/:sid',
+                loader:({params})=>fetch(`http://localhost:5022/onefood/${params?.sid}`),
                 element: <OneFoodPage />
             },
             {
@@ -90,11 +91,8 @@ const router = createBrowserRouter([
                 element: <ManageRestaurantsPage />
             },
             {
-                path: 'update_restaurants',
-                element: <UpdateRestaurantsPage />
-            },
-            {
-                path: 'update_foods',
+                path: 'update_foods/:fid',
+                loader: ({params}) => fetch(`http://localhost:5022/onefood/${params?.fid}`),
                 element: <UpdateFoodsPage />
             },
             {

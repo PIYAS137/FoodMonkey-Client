@@ -19,7 +19,7 @@ const AdminMenu = () => {
                     {/* Sidebar content here */}
                     <li className="rounded-lg text-black bg-yellow-500 mb-2"><NavLink to={'/dashboard/admin_dashboard'}>Admin Home</NavLink></li>
                     <li className="rounded-lg text-black bg-yellow-500 mb-2"><NavLink to={'/dashboard/add_restaurants'}>Add Restaurants</NavLink></li>
-                    <li className="rounded-lg text-black bg-yellow-500 mb-2"><NavLink to={'/dashboard/manage_restaurants'}>Manage Restaurants</NavLink></li>
+                    <li className="rounded-lg text-black bg-yellow-500 mb-2"><NavLink to={'/dashboard/manage_restaurants'}>All Restaurants</NavLink></li>
                     <li className="rounded-lg text-black bg-yellow-500 mb-2"><NavLink to={'/dashboard/add_foods'}>Add Foods</NavLink></li>
                     <li className="rounded-lg text-black bg-yellow-500 mb-2"><NavLink to={'/dashboard/manage_foods'}>Manage Foods</NavLink></li>
                     <li className="rounded-lg text-black bg-yellow-500 mb-2"><NavLink to={'/'}>Home Page</NavLink></li>

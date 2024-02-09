@@ -1,9 +1,14 @@
 import FoodCard from "../../Components/SharedComponents/FoodCard/FoodCard"
 import RestaurantCard from "../../Components/SharedComponents/RestaurantCard/RestaurantCard"
 import SectionHeader from "../../Components/SharedComponents/SectionHeader/SectionHeader"
+import useGetAllRestaurants from "../../Hooks/useGetAllRestaurants"
 
 
 const AllRestaurantsPage = () => {
+
+    const [allRes,refetch]= useGetAllRestaurants();
+    console.log(allRes);
+
     return (
         <div className=" w-full ">
             <div className=" h-20 w-full bg-black mb-10"></div>
@@ -13,14 +18,9 @@ const AllRestaurantsPage = () => {
             </div>
 
             <div className=" grid grid-cols-4 gap-10 container mx-auto my-20">
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
+                {
+                    allRes?.map(one=><RestaurantCard key={one?._id} data={one}/>)
+                }
             </div>
 
 
