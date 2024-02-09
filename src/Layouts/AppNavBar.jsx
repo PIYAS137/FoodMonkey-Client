@@ -8,7 +8,7 @@ import useGetAllCartItem from '../Hooks/useGetAllCartItem';
 const AppNavBar = () => {
 
     const { user, Firebase_Logout_User } = useContext(AuthContext)
-    const [allItems,refetch] = useGetAllCartItem();
+    const [allItems, refetch] = useGetAllCartItem();
 
 
     const navLinks = <>
@@ -59,7 +59,7 @@ const AppNavBar = () => {
                         <Link to={'/cart'}><FaCartShopping className=' text-2xl' /></Link>
                         <div className=' flex flex-col'>
                             <small className=' text-gray-300'>Shopping Cart</small>
-                            <small className=' text-yellow-300 text-center'>$400</small>
+                            <small className=' text-yellow-300 text-center'>${allItems?.reduce((total, next) => total + next?.orderItemQuantity * next?.discount_price, 0)}</small>
                         </div>
                     </div>
                     {
