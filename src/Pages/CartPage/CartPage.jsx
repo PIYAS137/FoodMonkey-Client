@@ -56,6 +56,9 @@ const CartPage = () => {
             <div className=" h-20 w-full bg-black"></div>
             <div className=" grid grid-cols-3  mt-10">
                 <div className="max-w-xl mx-auto col-span-2 DeleveryRecordPage">
+                {
+                        allItems?.length === 0 && <p className=" text-red-400 italic font-bold text-center py-2 rounded-lg mx-auto mt-5">Your Cart is Empty !</p>
+                    }
 
                     {
                         allItems?.map(one => <CartCard key={one?._id} data={one} />)

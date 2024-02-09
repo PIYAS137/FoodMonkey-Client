@@ -76,8 +76,9 @@ const ManageFoodsPage = () => {
     return (
         <div>
             <h1 className=" text-center font-bold text-lg">Manage Foods</h1>
+            <p className=" text-center text-xs text-orange-300">{allFoods?.length} Items found</p>
             {/* table content start from here */}
-            <div className="overflow-x-auto max-w-3xl mx-auto mt-5 border-x">
+            <div className="overflow-x-auto max-w-4xl mx-auto mt-8 border border-gray-50">
                 <table className="table">
                     {/* head */}
                     <thead className=" bg-yellow-200">

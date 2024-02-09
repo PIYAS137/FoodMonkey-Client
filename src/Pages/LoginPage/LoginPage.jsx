@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form"
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/FirebaseContext";
 import Swal from 'sweetalert2';
 import { FaGoogle } from "react-icons/fa6";
@@ -9,7 +9,8 @@ import usePublicAxios from "../../Hooks/usePublicAxios";
 const LoginPage = () => {
   const { Firebase_Login_User, Firebase_Google_Login } = useContext(AuthContext);
   const navigate = useNavigate();
-  const publicAxios = usePublicAxios()
+  const publicAxios = usePublicAxios();
+  const location = useLocation();
 
   const {
     register,
@@ -57,7 +58,7 @@ const LoginPage = () => {
             showConfirmButton: false,
             timer: 1500
           });
-          navigate('/')
+          navigate(location?.state ? location.state : '/')
           const userInfo={
             user_name : res?.user?.displayName,
             user_image: res?.user?.photoURL,
@@ -104,7 +105,7 @@ const LoginPage = () => {
             <input {...register("pass", { required: true })} placeholder="Enter your password" className="input input-bordered bg-yellow-400" />
             {errors.pass && <span className=" text-red-500">This field is required</span>}
             <label className="label ">
-              <p className="text-black label-text-alt link link-hover mt-4">Dont have an account? <Link to={'/signup'} className=" font-semibold">Create Account</Link></p>
+              <p className="text-black label-text-alt link link-hover mt-4">Dont have an account? <Link state={location.state} to={'/signup'} className=" font-semibold">Create Account</Link></p>
             </label>
           </div>
           <div className="form-control ">

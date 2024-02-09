@@ -1,5 +1,4 @@
 import { useLoaderData } from "react-router-dom"
-import OneFoodPageSimilar from "../../Components/OneFoodComponents/OneFoodPageSimilar"
 import usePublicAxios from "../../Hooks/usePublicAxios";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Contexts/FirebaseContext";
@@ -14,8 +13,6 @@ const OneFoodPage = () => {
     const publicAxios = usePublicAxios();
     const { user } = useContext(AuthContext);
     const [,refetch] = useGetAllCartItem();
-
-    console.log(loaderData);
 
 
     const [quantity, setQuantity] = useState(1)
@@ -88,8 +85,6 @@ const OneFoodPage = () => {
                     </div>
                 </div>
             </div>
-
-            <OneFoodPageSimilar />
 
         </div>
     )

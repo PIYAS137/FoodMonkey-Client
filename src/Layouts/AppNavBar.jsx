@@ -4,18 +4,24 @@ import { FaCartShopping, FaTruck } from "react-icons/fa6";
 import './AppNavBar.css'
 import { AuthContext } from '../Contexts/FirebaseContext';
 import useGetAllCartItem from '../Hooks/useGetAllCartItem';
+import useGetAdminStatus from '../Hooks/useGetAdminStatus';
 
 const AppNavBar = () => {
 
     const { user, Firebase_Logout_User } = useContext(AuthContext)
     const [allItems, refetch] = useGetAllCartItem();
-
+    const [adminStatus] = useGetAdminStatus();
 
     const navLinks = <>
         <li className='text-white'><NavLink to={'/'}>Home</NavLink></li>
         <li className='text-white'><NavLink to={'/restaurants'}>Resturants</NavLink></li>
         <li className='text-white'><NavLink to={'/allfoods'}>Foods</NavLink></li>
-        <li className='text-white'><NavLink to={'/dashboard/admin_dashboard'}>Dashboard</NavLink></li>
+        {/* only admin can access this route & 2 layer security*/}
+        {
+            user?.email && // 1. you should be logged in !
+            adminStatus?.status === 1 && // 2. your user status should be admin !
+            <li className='text-white'><NavLink to={'/dashboard/admin_dashboard'}>Dashboard</NavLink></li>
+        }
     </>
 
     const handleClickSignOut = () => {
@@ -58,7 +64,7 @@ const AppNavBar = () => {
                         <span className='text-xs absolute -top-2 -left-2 rounded-full aspect-square w-5 flex items-center justify-center bg-yellow-300 text-black'>{allItems?.length}</span>
                         <Link to={'/cart'}><FaCartShopping className=' text-2xl' /></Link>
                         <div className=' flex flex-col'>
-                            <small className=' text-gray-300'>Shopping Cart</small>
+                            <small className=' text-gray-300'>Your Cart</small>
                             <small className=' text-yellow-300 text-center'>${allItems?.reduce((total, next) => total + next?.orderItemQuantity * next?.discount_price, 0)}</small>
                         </div>
                     </div>
@@ -69,6 +75,12 @@ const AppNavBar = () => {
                             <Link to={'/login'}>
                                 <button className=' btn px-5 rounded-lg hover:bg-yellow-500 bg-yellow-300 border-none'>Login</button>
                             </Link>
+                    }
+                    {
+                        user?.email && <div className=' relative'>
+                            <img className=' w-12 aspect-square rounded-full object-cover ml-2 relative' src={user?.photoURL} alt="" />
+                            <span className=' w-2 aspect-square bg-lime-400 rounded-full absolute right-1 bottom-0'></span>
+                        </div>
                     }
                 </div>
             </div>

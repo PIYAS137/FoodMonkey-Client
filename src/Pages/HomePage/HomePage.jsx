@@ -4,6 +4,7 @@ import BestRestaurants from "../../Components/HomePageComponents/BestRestaurants
 import BestRestaurantsDealsSection from "../../Components/HomePageComponents/BestRestaurantsDealsSection"
 import ClientSection from "../../Components/HomePageComponents/ClientSection"
 import DeliciousDealSection from "../../Components/HomePageComponents/DeliciousDealSection"
+import HowToUseWebsite from "../../Components/HomePageComponents/HowToUseWebsite"
 import ThreeOfferSection from "../../Components/HomePageComponents/ThreeOfferSection"
 import TodaysSpecialSection from "../../Components/HomePageComponents/TodaysSpecialSection"
 
@@ -17,6 +18,7 @@ const HomePage = () => {
       <TodaysSpecialSection />
       <AreaCoverageSection/>
       <BestRestaurantsDealsSection />
+      <HowToUseWebsite/>
       <ClientSection />
       <BestRestaurants />
     </div>

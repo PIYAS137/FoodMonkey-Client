@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Bannar = () => {
     return (
@@ -9,9 +10,11 @@ const Bannar = () => {
                 <div className=' text-white space-y-3'>
                     <h1 className=' text-7xl font-custom italic font-bold'>Special kombo Pack</h1>
                     <h1 className=' text-yellow-300 text-6xl font-semibold'>Today's Special Pizza Menu</h1>
-                    <p className=' text-xl text-gray-200'>Maecenas tempus, tellus eget condimentum rhoncus,<br/> sem quam semper libero, sit amet sem neque sed ipsum.</p>
+                    <p className=' text-xl text-gray-200'>Maecenas tempus, tellus eget condimentum rhoncus,<br /> sem quam semper libero, sit amet sem neque sed ipsum.</p>
                     <div className=' flex items-center space-x-3 pt-8'>
-                        <button className=' btn rounded-sm px-8 hover:bg-yellow-500 bg-yellow-300 border-none text-base'>ORDER NOW</button>
+                        <Link to={'/allfoods'}>
+                            <button className=' btn rounded-lg px-8 hover:bg-yellow-500 bg-yellow-300 border-none text-base uppercase'>View More</button>
+                        </Link>
                         <h1 className=' text-5xl font-bold font-custom tracking-wider'>$399</h1>
                         <small className=' font-custom tracking-wider line-through text-yellow-300 text-2xl font-bold'>$500</small>
                     </div>

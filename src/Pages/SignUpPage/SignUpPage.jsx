@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form"
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/FirebaseContext";
 import usePublicAxios from "../../Hooks/usePublicAxios";
 import Swal from 'sweetalert2'
@@ -9,7 +9,8 @@ const SignUpPage = () => {
 
   const { Firebase_SignUp_User, Firebase_Update_User } = useContext(AuthContext);
   const publicAxios = usePublicAxios();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const {
     register,
@@ -42,7 +43,7 @@ const SignUpPage = () => {
                       showConfirmButton: false,
                       timer: 1500
                     });
-                    navigate('/')
+                    navigate(location?.state ? location.state : '/')
                   }
                 }).catch(err => {
                   Swal.fire({

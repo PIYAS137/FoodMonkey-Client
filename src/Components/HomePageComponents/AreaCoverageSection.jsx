@@ -1,12 +1,9 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useLoaderData } from "react-router-dom"
 import SectionHeader from "../SharedComponents/SectionHeader/SectionHeader"
 import { areaArr } from "../../Utils/Cities"
 
 
 const AreaCoverageSection = () => {
-
-
-
 
     return (
         <div>
@@ -19,7 +16,7 @@ const AreaCoverageSection = () => {
                 {
                     areaArr.map(one => {
                         return (
-                            <NavLink to={'/divres'} key={one.id} >
+                            <NavLink to={`/divres/${one?.name}`} key={one.id} >
                                 <div style={{ backgroundImage: `url(${one.image})` }} className="flex justify-start items-end min-w-16 aspect-square bg-cover rounded-lg">
                                     <p className="bg-yellow-300 inline-block p-2 px-5 rounded-sm m-3 font-semibold uppercase">{one.name}</p>
                                 </div>

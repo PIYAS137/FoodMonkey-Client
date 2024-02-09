@@ -1,8 +1,15 @@
+import { Link } from "react-router-dom";
+import useGetAllFoods from "../../Hooks/useGetAllFoods"
 import FoodCard from "../SharedComponents/FoodCard/FoodCard"
 import SectionHeader from "../SharedComponents/SectionHeader/SectionHeader"
 
 
 const DeliciousDealSection = () => {
+
+    const [allFoods, refetch] = useGetAllFoods();
+
+
+
     return (
         <div className=" container mx-auto">
 
@@ -13,18 +20,15 @@ const DeliciousDealSection = () => {
 
             {/* delicious section content */}
             <div className=" grid grid-cols-4 gap-10">
-                <FoodCard />
-                <FoodCard />
-                <FoodCard />
-                <FoodCard />
-                <FoodCard />
-                <FoodCard />
-                <FoodCard />
-                <FoodCard />
+                {
+                    allFoods?.slice(0, 8)?.map(one => <FoodCard key={one?._id} data={one} />)
+                }
             </div>
 
             <div className=" flex justify-center mb-20 mt-10">
-                <button className=' btn px-5 rounded-sm hover:bg-yellow-500 bg-yellow-300 border-none'>VIEW ALL FOODS</button>
+                <Link to={'/allfoods'}>
+                    <button className=' btn px-5 rounded-sm hover:bg-yellow-500 bg-yellow-300 border-none'>VIEW ALL FOODS</button>
+                </Link>
             </div>
 
         </div>

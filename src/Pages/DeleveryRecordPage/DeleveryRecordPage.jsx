@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import usePublicAxios from "../../Hooks/usePublicAxios"
 import { AuthContext } from "../../Contexts/FirebaseContext";
-import { Link } from 'react-router-dom';
 
 
 const DeleveryRecordPage = () => {
@@ -27,6 +26,9 @@ const DeleveryRecordPage = () => {
             <div className=" h-screen bg-yellow-50">
                 <h1 className=" text-center font-bold text-lg pt-5">Your Order History</h1>
                 <div>
+                    {
+                        datas?.length === 0 && <p className=" text-red-600 bg-red-100 text-center py-2 rounded-lg max-w-2xl mx-auto mt-5">No Record Found !</p>
+                    }
                     {
                         datas?.map(one => {
                             return (
