@@ -39,17 +39,17 @@ const router = createBrowserRouter([
             },
             {
                 path: '/divres/:did',
-                loader:({params})=>fetch(`http://localhost:5022/resfoods/${params?.did}`),
+                loader:({params})=>fetch(`https://food-monkey-server-gray.vercel.app/resfoods/${params?.did}`),
                 element: <PrivateRoutes><DivisionRestaurantsPage /></PrivateRoutes>
             },
             {
                 path: '/oneres/:resName',
-                loader:({params})=>fetch(`http://localhost:5022/resfood/${params?.resName}`),
+                loader:({params})=>fetch(`https://food-monkey-server-gray.vercel.app/resfood/${params?.resName}`),
                 element: <PrivateRoutes><OneRestaurantPage /></PrivateRoutes>
             },
             {
                 path: '/onecard/:sid',
-                loader:({params})=>fetch(`http://localhost:5022/onefood/${params?.sid}`),
+                loader:({params})=>fetch(`https://food-monkey-server-gray.vercel.app/onefood/${params?.sid}`),
                 element: <PrivateRoutes><OneFoodPage /></PrivateRoutes>
             },
             {
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'add_foods',
-                loader: () => fetch('http://localhost:5022/restaurant'),
+                loader: () => fetch('https://food-monkey-server-gray.vercel.app/restaurant'),
                 element: <PrivateRoutes><AddFoodsPage /></PrivateRoutes>
             },
             {
@@ -94,7 +94,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'update_foods/:fid',
-                loader: ({params}) => fetch(`http://localhost:5022/onefood/${params?.fid}`),
+                loader: ({params}) => fetch(`https://food-monkey-server-gray.vercel.app/onefood/${params?.fid}`),
                 element: <PrivateRoutes><UpdateFoodsPage /></PrivateRoutes>
             },
             {

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const publicAxios = axios.create({
-    baseURL : 'http://localhost:5022'
+    baseURL : 'https://food-monkey-server-gray.vercel.app'
 })
 
 const usePublicAxios = () => {
