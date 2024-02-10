@@ -20,11 +20,11 @@ const Bannar = () => {
                     </div>
                 </div>
                 <div className=' relative w-[70%] lg:w-full'>
-                    <img className='absolute -top-5 -left-20 hidden xl:block' src="https://dev.foodotawp.com/wp-content/uploads/2021/08/layer-1307-1.png" />
+                    <img className='absolute w-[180px] top-10 -left-14 hidden xl:block' src="https://dev.foodotawp.com/wp-content/uploads/2021/08/layer-1307-1.png" />
                     <img className='absolute -bottom-10 right-10 max-w-44' src="https://dev.foodotawp.com/wp-content/uploads/2021/08/layer-1206-1.png" />
                     <img className='absolute -top-0 right-10 w-[50px]' src="https://dev.foodotawp.com/wp-content/uploads/2021/08/layer-1207-1.png" />
                     <img className='absolute -bottom-20 left-10 w-[100px]' src="https://dev.foodotawp.com/wp-content/uploads/2021/08/layer-1205-1.png" />
-                    <img className=' w-full' src="https://dev.foodotawp.com/wp-content/uploads/2021/08/layer-1203-1.png" alt="" />
+                    <img className='w-full' src="https://dev.foodotawp.com/wp-content/uploads/2021/08/layer-1203-1.png" alt="" />
                 </div>
             </div>
         </div>

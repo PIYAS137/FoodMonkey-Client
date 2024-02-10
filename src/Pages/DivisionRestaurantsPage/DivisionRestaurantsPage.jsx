@@ -5,8 +5,6 @@ import RestaurantCard from "../../Components/SharedComponents/RestaurantCard/Res
 const DivisionRestaurantsPage = () => {
 
     const loaderData = useLoaderData();
-    console.log(loaderData);
-
 
 
     return (
@@ -21,7 +19,7 @@ const DivisionRestaurantsPage = () => {
                     loaderData?.length == 0 && <p className=" text-xl bg-red-100 text-red-600 py-2 mt-10 text-center max-w-2xl rounded-lg mx-auto">No Restaurant found !</p>
                 }
 
-            <div className=" grid grid-cols-4 gap-10 container mx-auto my-28">
+            <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 container mx-auto my-28">
                 
                 {
                     loaderData?.map(one=><RestaurantCard key={one?._id} data={one}/>)

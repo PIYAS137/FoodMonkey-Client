@@ -58,11 +58,11 @@ const OneFoodPage = () => {
 
 
     return (
-        <div>
+        <div className="">
             <div className=" h-20 w-full bg-black"  ></div>
 
-            <div className=" bg-stone-200 flex justify-center items-start py-32">
-                <div className="max-w-6xl bg-white mx-auto grid grid-cols-5 rounded-xl overflow-hidden">
+            <div className=" bg-stone-200 flex justify-center items-start py-16 md:py-32 px-3 xl:px-0">
+                <div className="max-w-6xl bg-white mx-auto lg:grid grid-cols-5 rounded-xl overflow-hidden">
                     <div className="relative col-span-3 bg-yellow-50 justify-center items-center flex">
                         {
                             loaderData?.status ?
@@ -72,7 +72,7 @@ const OneFoodPage = () => {
                         }
                         <img src={loaderData?.photo} alt="" />
                     </div>
-                    <div className=" col-span-2 m-16 space-y-5 flex flex-col justify-center">
+                    <div className=" col-span-2 m-8 md:m-16 space-y-5 flex flex-col justify-center">
                         <h1 className="text-5xl font-custom">{loaderData?.name}</h1>
                         <p className=" text-xs">Items of <span className=" font-bold">{loaderData?.res_name}</span></p>
                         <p className=" text-2xl font-semibold">Price : <span className="text-yellow-600">${loaderData?.main_price}</span></p>

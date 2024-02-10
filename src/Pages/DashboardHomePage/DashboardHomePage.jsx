@@ -20,7 +20,7 @@ const DashboardHomePage = () => {
     <div className="">
       <h1 className=" text-center font-bold text-4xl text-gray-600 font-custom mb-3">Welcome to Admin Dashboard</h1>
       <div className="space-y-3">
-        <div className=" grid grid-cols-4 gap-5 p-5">
+        <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 p-5">
           {/* Restaurants card */}
           <div className=" bg-white p-3 rounded-lg shadow-lg border border-gray-100">
             <h1 className="text-sm font-semibold text-gray-500">Total Restaurants</h1>
@@ -76,7 +76,7 @@ const DashboardHomePage = () => {
           </div>
           {/* Total Revenue card */}
         </div>
-        <div className=" grid grid-cols-2 p-5 gap-5 max-h-[600px]">
+        <div className=" md:grid grid-cols-2 p-5 gap-5 max-h-[600px] space-y-5 md:space-y-0">
           {/* manage users field */}
           <div className="overflow-x-auto p-3 bg-white rounded-lg overflow-y-scroll shadow-xl border">
             <small className="text-sm font-semibold text-gray-600">User Management</small>

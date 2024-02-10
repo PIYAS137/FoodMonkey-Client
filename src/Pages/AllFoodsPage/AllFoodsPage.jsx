@@ -23,14 +23,14 @@ const AllFoodsPage = () => {
     return (
         <div>
             <div className="h-20 w-full bg-black"></div>
-            <form onSubmit={handleSubmitForm} className="p-3 flex justify-end items-center container mx-auto">
-                <h1 className="mr-auto text-2xl font-bold text-yellow-500 rounded-lg">Find all available foods here! <span className=" text-sm text-orange-300">{allFoods?.length} Items Found</span></h1>
+            <form onSubmit={handleSubmitForm} className="p-3 flex flex-col md:flex-row justify-end items-center container mx-auto">
+                <h1 className=" md:mr-auto mb-2 md:mb-0 text-xl md:text-2xl font-bold text-yellow-500 rounded-lg">Find all available foods here! <span className=" text-sm text-orange-300">{allFoods?.length} Items Found</span></h1>
                 <div>
                     <input onChange={(e) => setName(e.target.value)} value={name} type="search" className="bg-yellow-400 p-3 px-5 rounded-lg shadow-md" placeholder="search by food name" />
                     <button type="submit" className="btn ml-3 bg-yellow-400 outline-none border-none uppercase shadow-md">Search</button>
                 </div>
             </form>
-            <div className="grid grid-cols-4 gap-10 container mx-auto my-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 container mx-auto my-20">
                 {fixDatas?.map(one => <FoodCard key={one?._id} data={one} />)}
             </div>
         </div>

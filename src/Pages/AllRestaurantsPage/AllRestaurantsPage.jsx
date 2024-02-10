@@ -6,18 +6,17 @@ import useGetAllRestaurants from "../../Hooks/useGetAllRestaurants"
 
 const AllRestaurantsPage = () => {
 
-    const [allRes,refetch]= useGetAllRestaurants();
-    console.log(allRes);
+    const [allRes,]= useGetAllRestaurants();
 
     return (
         <div className=" w-full ">
             <div className=" h-20 w-full bg-black mb-10"></div>
 
             <div className=" my-10">
-                <SectionHeader small={'30+ Active Restaurants'} large={'Find Best Rantaurants'} />
+                <SectionHeader small={'30+ Active Restaurants'} large={'Our All Rantaurants'} />
             </div>
 
-            <div className=" grid grid-cols-4 gap-10 container mx-auto my-20">
+            <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 container mx-auto my-20">
                 {
                     allRes?.map(one=><RestaurantCard key={one?._id} data={one}/>)
                 }

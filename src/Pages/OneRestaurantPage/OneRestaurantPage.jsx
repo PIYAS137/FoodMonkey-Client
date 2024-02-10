@@ -22,7 +22,7 @@ const OneRestaurantPage = () => {
                 loaderData?.length == 0 && <p className=" bg-red-200 text-red-500 text-xl font-bold max-w-xl mx-auto py-2 text-center rounded-lg">No items found !</p>
             }
 
-            <div className=" grid grid-cols-4 gap-10 container mx-auto my-20">
+            <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 container mx-auto my-20">
 
                 {
                     loaderData?.map(one => <ResFoodCard key={one?._id} data={one} />)

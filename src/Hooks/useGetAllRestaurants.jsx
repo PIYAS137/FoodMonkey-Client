@@ -8,7 +8,7 @@ const useGetAllRestaurants = () => {
     const publicAxios = usePublicAxios()
 
     const { data: allRes, refetch } = useQuery({
-        queryKey: ['getAllRestaurants'],
+        queryKey: ['getAllRestaurants','extraKey'],
         queryFn: async () => {
             const res = await publicAxios.get('/restaurant');
             return res.data;

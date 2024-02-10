@@ -64,9 +64,9 @@ const SignUpPage = () => {
 
   return (
     <div className=" w-full h-screen bg-yellow-700 3 flex justify-center items-center">
-      <div className="grid grid-cols-5 min-w-[900px] min-h-[600px] rounded-xl overflow-hidden">
-        <form onSubmit={handleSubmit(onSubmit)} className="p-3 bg-yellow-300 col-span-2 w-full h-full flex flex-col justify-center">
-          <h1 className=" text-4xl font-bold font-custom text-center ">Register Here</h1>
+      <div className="xl:grid grid-cols-5 min-w-[90%] md:min-w-[50%] xl:min-w-[900px] min-h-[600px] rounded-xl overflow-hidden">
+        <form onSubmit={handleSubmit(onSubmit)} className="p-3 bg-yellow-300 col-span-2 rounded-xl xl:rounded-none w-full h-full flex flex-col justify-center">
+          <h1 className=" text-4xl font-bold font-custom text-center py-5 xl:py-0">Register Here</h1>
 
           {/* name field */}
           <div className="form-control">

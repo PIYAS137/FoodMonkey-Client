@@ -5,7 +5,7 @@ import '../SharedComponents/FoodCard/FoodCard.css';
 const ResFoodCard = ({data}) => {
     return (
         <Link to={`/onecard/${data?._id}`}>
-            <div className=" border flex flex-col justify-center items-center rounded-lg targetx cursor-pointer">
+            <div className=" border flex flex-col justify-center items-center rounded-lg targetx cursor-pointer mx-2 md:mx-0">
                 <div className=" w-full flex justify-center items-center relative pt-3">
                     <div className="z-20 absolute bg-yellow-50 w-full -left-50 -right-50 min-h-28 top-50 bgx"></div>
                     <img className="z-30 bgi max-w-[200px]" src={data?.photo} />

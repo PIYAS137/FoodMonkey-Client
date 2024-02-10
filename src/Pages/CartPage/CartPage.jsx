@@ -54,7 +54,7 @@ const CartPage = () => {
     return (
         <div className=" min-h-screen">
             <div className=" h-20 w-full bg-black"></div>
-            <div className=" grid grid-cols-3  mt-10">
+            <div className=" md:grid grid-cols-3  mt-10">
                 <div className="max-w-xl mx-auto col-span-2 DeleveryRecordPage">
                 {
                         allItems?.length === 0 && <p className=" text-red-400 italic font-bold text-center py-2 rounded-lg mx-auto mt-5">Your Cart is Empty !</p>
@@ -66,7 +66,7 @@ const CartPage = () => {
 
                 </div>
                 <div>
-                    <div className=" bg-yellow-500 max-w-xs mx-auto p-4 rounded-xl">
+                    <div className=" bg-yellow-500 max-w-xs mx-auto p-4 rounded-xl mt-5 md:mt-0">
                         <h1 className=" text-center font-bold text-xl mb-3">Final Calculation</h1>
                         <h1 className=" text-center">Total Price : <span className=" font-bold">$
                             {
