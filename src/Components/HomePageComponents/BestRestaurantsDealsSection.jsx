@@ -25,7 +25,7 @@ const BestRestaurantsDealsSection = () => {
             </div>
 
             {/* best restaurants deals section content */}
-            <div className=" grid grid-cols-3 gap-16">
+            <div className=" container mx-auto grid md:grid-cols-3 items-center justify-center my-16 gap-16">
                 {
                     posterArr.map((one,i)=><img className=" w-full" key={i} src={one}/>)
                 }

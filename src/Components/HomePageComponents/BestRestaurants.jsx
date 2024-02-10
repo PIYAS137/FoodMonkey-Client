@@ -15,9 +15,9 @@ const BestRestaurants = () => {
 
     return (
         <div className=" py-20 container mx-auto">
-            <div className=" flex justify-around items-center">
+            <div className=" flex flex-wrap justify-center items-center">
                 {
-                    restaurantsArr.map((one,i)=><img key={i} src={one}/>)
+                    restaurantsArr.map((one,i)=><img className=" max-w-32 lg:max-w-full mt-4 md:mt-0" key={i} src={one}/>)
                 }
             </div>
         </div>

@@ -25,7 +25,7 @@ const ClientSection = () => {
                 <SectionHeader small={'Our Journey'} large={'Our Best Regular Clients'} />
             </div>
 
-            <div className="max-w-[70%] min-w-[350px] mx-auto h-[400px] flex flex-row items-center overflow-hidden gap-5 lg:gap-10 px-8 md:px-16 lg:px-24">
+            <div className="container min-w-[350px] mx-auto h-[400px] flex flex-row items-center overflow-hidden gap-5 lg:gap-10 px-8 md:px-16 lg:px-24">
                 <div className="relative overflow-hidden">
                     <div className="absolute w-full h-full flex items-center justify-between z-50 px-5">
                         {/* arrow left */}

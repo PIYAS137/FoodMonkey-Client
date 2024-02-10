@@ -13,9 +13,9 @@ const HowToUseWebsite = () => {
 
 
     return (
-        <div>
-            <div className=" mt-20">
-                <SectionHeader small={'Our Journey'} large={'Our Best Regular Clients'} />
+        <div className="hidden md:block">
+            <div className=" mt-20 ">
+                <SectionHeader small={'Our Journey'} large={'How to Use this Website'} />
             </div>
             <div className="max-w-[800px] max-h-[200px] md:min-h-[300px] flex bg-orange-400 mx-auto rounded-xl mt-10">
                 {accordionData.map((_, idx) => (

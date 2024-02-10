@@ -6,7 +6,7 @@ import SectionHeader from "../SharedComponents/SectionHeader/SectionHeader"
 
 const DeliciousDealSection = () => {
 
-    const [allFoods, refetch] = useGetAllFoods();
+    const [allFoods,] = useGetAllFoods();
 
 
 
@@ -19,7 +19,7 @@ const DeliciousDealSection = () => {
             </div>
 
             {/* delicious section content */}
-            <div className=" grid grid-cols-4 gap-10">
+            <div className=" grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-10">
                 {
                     allFoods?.slice(0, 8)?.map(one => <FoodCard key={one?._id} data={one} />)
                 }

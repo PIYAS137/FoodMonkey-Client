@@ -9,9 +9,9 @@ const ThreeOfferSection = () => {
     ]
 
   return (
-    <div className="container mx-auto grid grid-cols-3 items-center my-16 gap-16">
+    <div className="container mx-auto grid md:grid-cols-3 items-center justify-center my-16 gap-16">
         {
-            imgArr.map((one,i)=><img className=" w-full object-cover rounded-lg" key={i} src={one}/>)
+            imgArr.map((one,i)=><img className=" md:w-full object-cover rounded-lg" key={i} src={one}/>)
         }
     </div>
   )
