@@ -9,5 +9,5 @@
 - React Query V3
 
 ### Admin Login Info
-email : ryanreynolds@gmail.com
+email : ryanreynolds@gmail.com <br/>
 pass  : ryan12345!
